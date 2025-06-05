@@ -11,6 +11,7 @@ import {
   Target,
   CheckCircle,
   Plus,
+  Shield,
 } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -143,7 +144,7 @@ export function HeroSection() {
           <div className="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row">
             <Button
               size="lg"
-              className="px-10 py-5 text-xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 shadow-lg"
+              className="px-10 py-5 text-xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 shadow-lg text-white"
               onClick={scrollToDemo}
             >
               <Target className="mr-3 h-6 w-6" />

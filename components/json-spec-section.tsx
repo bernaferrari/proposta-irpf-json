@@ -418,7 +418,7 @@ export function JsonSpecSection() {
           </div>
 
           {/* Validation Summary */}
-          <div className="mt-8 bg-white dark:from-gray-800 dark:to-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+          <div className="mt-8 bg-card rounded-xl p-6 border border-gray-200 dark:border-gray-600">
             <div className="flex items-start space-x-4">
               <div className="p-2 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
                 <CheckCircle className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />

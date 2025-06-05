@@ -91,7 +91,7 @@ export function FutureExtensionsSection() {
                       <div className="flex items-center space-x-2 mt-1">
                         <Badge
                           variant={
-                            extension.complexity === "Baixa"
+                            extension.complexity === "Complexidade Baixa"
                               ? "secondary"
                               : "default"
                           }

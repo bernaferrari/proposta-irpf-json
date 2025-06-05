@@ -106,7 +106,7 @@ function importarInformeJSON(arquivo) {
         </div>
 
         <Tabs defaultValue="banks" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-3 bg-gray-100 dark:bg-gray-700 mb-6">
             <TabsTrigger value="banks">Para Bancos</TabsTrigger>
             <TabsTrigger value="irpf">Para IRPF</TabsTrigger>
             <TabsTrigger value="validation">Validação</TabsTrigger>
@@ -299,7 +299,10 @@ function importarInformeJSON(arquivo) {
               <CardContent>
                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
                   {validationRules.map((rule, index) => (
-                    <div key={index} className="bg-muted p-4 flex flex-col rounded-xl">
+                    <div
+                      key={index}
+                      className="bg-muted p-4 flex flex-col rounded-xl"
+                    >
                       <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">
                         <code className="text-sm bg-background dark:bg-gray-800 px-2 py-1 rounded">
                           {rule.field}

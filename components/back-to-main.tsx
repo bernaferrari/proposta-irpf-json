@@ -11,7 +11,7 @@ export function BackToMain() {
         </h2>
         <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-10">
           Esta especificação técnica fornece o mínimo de detalhes necessários
-          para uma primeira versão da automatização do informe de rendimentos.
+          para uma primeira versão da facilitação do informe de rendimentos.
         </p>
         <Link href="/">
           <Button size="lg" variant="ghost" className="px-8">

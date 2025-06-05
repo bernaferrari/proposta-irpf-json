@@ -302,6 +302,51 @@ export function ProposedSolutionSection() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Security Clarification - NEW SECTION */}
+        <div className="mt-8 bg-white dark:bg-green-950 rounded-2xl p-6 shadow-lg max-w-4xl mx-auto border border-green-200 dark:border-green-800">
+          <div className="flex items-start space-x-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 dark:bg-green-900 flex-shrink-0">
+              <Shield className="h-5 w-5 text-green-600 dark:text-green-400" />
+            </div>
+            <div className="text-left">
+              <h3 className="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
+                🔒 Segurança: Processo Idêntico ao PDF Atual
+              </h3>
+              <p className="text-green-800 dark:text-green-200 text-sm leading-relaxed">
+                <strong>Sem mudanças no processo de segurança:</strong> O
+                usuário baixa um arquivo local do banco (como já faz com PDF) e
+                importa no programa IRPF offline.{" "}
+                <strong>
+                  Nenhuma conexão online, nenhuma transmissão de dados, nenhum
+                  rastro adicional.
+                </strong>{" "}
+                É exatamente como importar um PDF, mas com dados estruturados
+                que o programa consegue ler automaticamente.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Badge
+                  variant="secondary"
+                  className="bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100"
+                >
+                  Arquivo Local
+                </Badge>
+                <Badge
+                  variant="secondary"
+                  className="bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100"
+                >
+                  Sem Conexão Online
+                </Badge>
+                <Badge
+                  variant="secondary"
+                  className="bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100"
+                >
+                  Processo Offline
+                </Badge>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

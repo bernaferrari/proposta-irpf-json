@@ -7,6 +7,7 @@ import {
   Calculator,
   Users,
   TrendingDown,
+  Shield,
 } from "lucide-react";
 
 const problems = [
@@ -101,7 +102,7 @@ export function CurrentProblemSection() {
           ))}
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-8 border border-red-200 dark:border-red-800 shadow-lg">
+        <div className="bg-card rounded-xl p-8 border border-red-200 dark:border-red-800 shadow-lg">
           <div className="flex items-start gap-6">
             <div className="flex flex-shrink-0 h-16 w-16 items-center justify-center rounded-full bg-red-100 dark:bg-red-900">
               <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400" />

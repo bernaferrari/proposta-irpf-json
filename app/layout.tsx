@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { FloatingHeader } from "@/components/floating-header";
 
 export const metadata: Metadata = {
   title: "Informe de Rendimentos Automatizado",
@@ -32,7 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>
+          <FloatingHeader />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

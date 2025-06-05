@@ -10,9 +10,8 @@ export function CTASection() {
           Proposta de Modernização do Informe de Rendimentos
         </h2>
         <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-10">
-          Assim como a declaração pré-preenchida facilitou a vida de milhões de
-          brasileiros, a proposta de melhora do informe de rendimentos através
-          de JSON faria a declaração levar minutos.
+          Assim como a declaração pré-preenchida facilitou a vida dos brasileiros, 
+          melhorar o informe de rendimentos faria a declaração levar minutos, não horas.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link href="/technical">
