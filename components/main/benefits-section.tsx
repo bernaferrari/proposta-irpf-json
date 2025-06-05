@@ -9,7 +9,6 @@ import {
   FileText,
   Building2,
   Globe,
-  ArrowRight,
 } from "lucide-react";
 import { BenefitCard } from "./benefit-card";
 

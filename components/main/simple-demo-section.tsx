@@ -3,9 +3,8 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { BankFileSelector } from "@/components/bank-file-selector";
-import { ConsolidatedDataView } from "@/components/consolidated-data-view";
-import { ImportPreviewModal } from "@/components/import-preview-modal";
+import { BankFileSelector } from "@/components/main/bank-file-selector";
+import { ConsolidatedDataView } from "@/components/main/consolidated-data-view";
 import { Play, Upload, Database } from "lucide-react";
 
 export function SimpleDemoSection() {
@@ -13,7 +12,6 @@ export function SimpleDemoSection() {
     "bradesco",
     "itau",
   ]);
-  const [showImportModal, setShowImportModal] = useState(false);
 
   return (
     <section
@@ -63,20 +61,11 @@ export function SimpleDemoSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ConsolidatedDataView
-                  selectedFiles={selectedFiles}
-                  onImport={() => setShowImportModal(true)}
-                />
+                <ConsolidatedDataView selectedFiles={selectedFiles} />
               </CardContent>
             </Card>
           </div>
         </div>
-
-        <ImportPreviewModal
-          open={showImportModal}
-          onOpenChange={setShowImportModal}
-          selectedFiles={selectedFiles}
-        />
       </div>
     </section>
   );

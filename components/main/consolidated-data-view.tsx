@@ -15,7 +15,6 @@ import { Building2, TrendingUp, Wallet, FileText } from "lucide-react";
 
 interface ConsolidatedDataViewProps {
   selectedFiles: string[];
-  onImport: () => void;
 }
 
 // Enhanced mock data for all banks
@@ -109,7 +108,6 @@ const bankData = {
 
 export function ConsolidatedDataView({
   selectedFiles,
-  onImport,
 }: ConsolidatedDataViewProps) {
   const consolidatedData = useMemo(() => {
     const applications: any[] = [];
@@ -230,15 +228,23 @@ export function ConsolidatedDataView({
 
       {/* Data Tables */}
       <Tabs defaultValue="applications" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="applications">
-            Aplicações ({consolidatedData.applications.length})
+        <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 h-auto">
+          <TabsTrigger
+            value="applications"
+            className="flex flex-1 truncate gap-2"
+          >
+            Aplicações
+            <Badge variant={"default"}>
+              {consolidatedData.applications.length}
+            </Badge>
           </TabsTrigger>
-          <TabsTrigger value="income">
-            Rendimentos ({consolidatedData.income.length})
+          <TabsTrigger value="income" className="flex flex-1 truncate gap-2">
+            Rendimentos
+            <Badge variant={"default"}>{consolidatedData.income.length}</Badge>
           </TabsTrigger>
-          <TabsTrigger value="assets">
-            Bens e Direitos ({consolidatedData.assets.length})
+          <TabsTrigger value="assets" className="flex flex-1 truncate gap-2">
+            Bens e Direitos
+            <Badge variant={"default"}>{consolidatedData.assets.length}</Badge>
           </TabsTrigger>
         </TabsList>
 
@@ -371,7 +377,7 @@ export function ConsolidatedDataView({
 
       {/* Information Note */}
       <div className="flex justify-center pt-6">
-        <div className="bg-blue-50 dark:bg-blue-950 rounded-lg p-6 max-w-2xl text-center">
+        <div className="bg-blue-50 dark:bg-blue-950 rounded-lg p-6 w-full text-center">
           <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
             Como Funcionaria na Prática
           </h3>

@@ -7,7 +7,6 @@ import {
   Calculator,
   Users,
   TrendingDown,
-  Shield,
 } from "lucide-react";
 
 const problems = [

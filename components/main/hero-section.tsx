@@ -11,7 +11,6 @@ import {
   Target,
   CheckCircle,
   Plus,
-  Shield,
 } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
