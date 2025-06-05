@@ -32,8 +32,13 @@ export function ProposedSolutionSection() {
             <strong className="text-green-600 dark:text-green-400">
               adicionar
             </strong>{" "}
-            dados estruturados em JSON que o programa IRPF pode importar
-            automaticamente.
+            dados estruturados em JSON. O usuário importa o arquivo e o programa
+            IRPF
+            <strong className="text-green-600 dark:text-green-400">
+              {" "}
+              lê e preenche automaticamente
+            </strong>
+            .
           </p>
 
           <div className="mt-6 bg-green-100 dark:bg-green-900 rounded-lg p-4 max-w-2xl mx-auto">
@@ -44,7 +49,8 @@ export function ProposedSolutionSection() {
               </span>
             </div>
             <p className="text-sm text-green-700 dark:text-green-300 mt-2">
-              O PDF continua disponível. Apenas acrescentamos automação.
+              O PDF continua disponível. Apenas acrescentamos uma
+              funcionalidade.
             </p>
           </div>
         </div>
@@ -221,7 +227,8 @@ export function ProposedSolutionSection() {
                       Contribuinte obtém os dados
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Download do JSON separado <strong>OU</strong> PDF com dados embutidos
+                      Download do JSON separado <strong>OU</strong> PDF com
+                      dados embutidos
                     </p>
                   </div>
                 </div>
@@ -233,10 +240,11 @@ export function ProposedSolutionSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white">
-                      IRPF importa automaticamente
+                      Programa lê e preenche automaticamente
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Programa preenche todos os campos sem intervenção manual
+                      Após importação pelo usuário, programa preenche todos os
+                      campos sem digitação manual
                     </p>
                   </div>
                 </div>
@@ -286,8 +294,8 @@ export function ProposedSolutionSection() {
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-4 w-4 text-green-600" />
                   <span className="text-sm text-gray-700 dark:text-gray-300">
-                    <strong>PDF permanece disponível</strong> - compatibilidade
-                    total
+                    <strong>Leitura automática após importação</strong> -
+                    usuário apenas seleciona o arquivo
                   </span>
                 </div>
               </div>
