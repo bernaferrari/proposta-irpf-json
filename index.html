@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo: Integração Bancária IRPF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="py-16">
+            <h1 class="text-center mb-8">Demo: Integração Bancária IRPF</h1>
+            <p class="text-center" style="color: var(--color-text-secondary); font-size: var(--font-size-lg);">
+                Demonstração de como os bancos podem enviar dados financeiros diretamente para a Receita Federal
+            </p>
+        </header>
+
+        <!-- File Selection Section -->
+        <section class="card mb-8">
+            <div class="card__body">
+                <h2 style="margin-bottom: var(--space-16);">Selecionar Dados Bancários</h2>
+                <div class="file-selection-grid">
+                    <div class="predefined-files">
+                        <h3 style="margin-bottom: var(--space-12); font-size: var(--font-size-lg);">Arquivos Pré-definidos</h3>
+                        <div class="bank-cards">
+                            <div class="bank-card" data-bank="banco-brasil">
+                                <div class="bank-icon">🏦</div>
+                                <h4>Banco do Brasil</h4>
+                                <p>2 aplicações, 1 rendimento</p>
+                                <button class="btn btn--outline btn--sm">Selecionar</button>
+                            </div>
+                            <div class="bank-card" data-bank="itau">
+                                <div class="bank-icon">🏢</div>
+                                <h4>Itaú Unibanco</h4>
+                                <p>1 aplicação, 3 rendimentos</p>
+                                <button class="btn btn--outline btn--sm">Selecionar</button>
+                            </div>
+                            <div class="bank-card" data-bank="bradesco">
+                                <div class="bank-icon">🏛️</div>
+                                <h4>Bradesco</h4>
+                                <p>1 aplicação, 1 rendimento</p>
+                                <button class="btn btn--outline btn--sm">Selecionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upload-section">
+                        <h3 style="margin-bottom: var(--space-12); font-size: var(--font-size-lg);">Upload Personalizado</h3>
+                        <div class="upload-area">
+                            <div class="upload-content">
+                                <div style="font-size: 24px; margin-bottom: var(--space-8);">📁</div>
+                                <p>Arraste um arquivo JSON ou clique para selecionar</p>
+                                <input type="file" id="fileInput" accept=".json" style="display: none;">
+                                <button class="btn btn--secondary btn--sm" id="uploadBtn">Escolher Arquivo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Files Display -->
+        <section id="selectedFilesSection" class="card mb-8 hidden">
+            <div class="card__body">
+                <h2 style="margin-bottom: var(--space-16);">Arquivos Selecionados</h2>
+                <div id="selectedFilesList" class="selected-files-list"></div>
+            </div>
+        </section>
+
+        <!-- Data Tabs -->
+        <section id="dataSection" class="hidden">
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="aplicacoes">Aplicações Financeiras</button>
+                    <button class="tab-button" data-tab="rendimentos">Rendimentos</button>
+                    <button class="tab-button" data-tab="bens">Bens e Direitos</button>
+                    <button class="tab-button" data-tab="resumo">Resumo</button>
+                </div>
+
+                <!-- Aplicações Tab -->
+                <div class="tab-content active" id="aplicacoes-tab">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 style="margin-bottom: var(--space-16);">Aplicações Financeiras</h3>
+                            <div class="table-container">
+                                <table id="aplicacoesTable" class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Banco</th>
+                                            <th>Tipo</th>
+                                            <th>Conta</th>
+                                            <th>Saldo (31/12)</th>
+                                            <th>Rendimentos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rendimentos Tab -->
+                <div class="tab-content" id="rendimentos-tab">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 style="margin-bottom: var(--space-16);">Rendimentos</h3>
+                            <div class="table-container">
+                                <table id="rendimentosTable" class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Banco</th>
+                                            <th>Tipo</th>
+                                            <th>Valor Aplicado</th>
+                                            <th>Rendimentos Brutos</th>
+                                            <th>IR Retido</th>
+                                            <th>Rendimentos Líquidos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bens Tab -->
+                <div class="tab-content" id="bens-tab">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 style="margin-bottom: var(--space-16);">Bens e Direitos</h3>
+                            <div class="table-container">
+                                <table id="bensTable" class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Banco</th>
+                                            <th>Código</th>
+                                            <th>Descrição</th>
+                                            <th>Valor Anterior</th>
+                                            <th>Valor Atual</th>
+                                            <th>Variação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumo Tab -->
+                <div class="tab-content" id="resumo-tab">
+                    <div class="summary-grid">
+                        <div class="card">
+                            <div class="card__body">
+                                <h3>📊 Estatísticas Gerais</h3>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Bancos</span>
+                                        <span class="stat-value" id="totalBancos">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Aplicações</span>
+                                        <span class="stat-value" id="totalAplicacoes">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Rendimentos</span>
+                                        <span class="stat-value" id="totalRendimentos">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Bens/Direitos</span>
+                                        <span class="stat-value" id="totalBens">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__body">
+                                <h3>💰 Valores Consolidados</h3>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Saldo Total</span>
+                                        <span class="stat-value" id="saldoTotal">R$ 0,00</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Rendimentos Totais</span>
+                                        <span class="stat-value" id="rendimentosTotal">R$ 0,00</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">IR Retido</span>
+                                        <span class="stat-value" id="irTotal">R$ 0,00</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Rendimentos Líquidos</span>
+                                        <span class="stat-value" id="liquidoTotal">R$ 0,00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Import Button -->
+            <div class="action-section">
+                <button class="btn btn--primary btn--lg btn--full-width" id="importBtn">
+                    📤 Importar para IRPF
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Import Modal -->
+    <div id="importModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Confirmar Importação para IRPF</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: var(--space-16);">
+                    Os seguintes dados serão importados automaticamente para sua declaração do IRPF:
+                </p>
+                <div id="importSummary" class="import-summary"></div>
+                <div class="status status--info" style="margin-top: var(--space-16);">
+                    <strong>Nota:</strong> Esta é uma demonstração. Em um cenário real, os dados seriam transmitidos 
+                    diretamente da instituição financeira para a Receita Federal.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn--secondary" id="cancelImport">Cancelar</button>
+                <button class="btn btn--primary" id="confirmImport">Confirmar Importação</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>✅ Importação Realizada com Sucesso!</h2>
+                <button class="modal-close" id="closeSuccessModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: center; margin-bottom: var(--space-16);">
+                    Os dados bancários foram importados com sucesso para sua declaração do IRPF.
+                </p>
+                <div class="status status--success" style="text-align: center;">
+                    <strong>Benefícios da integração:</strong><br>
+                    • Redução de erros de digitação<br>
+                    • Economia de tempo no preenchimento<br>
+                    • Maior precisão nas informações<br>
+                    • Conformidade automática com a legislação
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn--primary btn--full-width" id="closeSuccess">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
