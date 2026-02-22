@@ -64,7 +64,7 @@ informe_rendimentos_033_2023.json  # Santander`;
           </p>
         </div>
 
-        <Tabs defaultValue="naming" className="w-full">
+        <Tabs defaultValue="naming" className="w-full flex flex-col">
           <TabsList className="grid w-full grid-cols-3 bg-gray-100 dark:bg-gray-700 mb-6">
             <TabsTrigger value="naming">Nomenclatura</TabsTrigger>
             <TabsTrigger value="distribution">Distribuição</TabsTrigger>

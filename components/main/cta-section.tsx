@@ -18,7 +18,7 @@ export function CTASection() {
             <Button
               size="lg"
               variant="outline"
-              className="px-8 bg-transparent border-white text-white hover:bg-white hover:text-blue-600"
+              className="px-8 bg-transparent border-white text-white hover:bg-white dark:hover:text-white hover:text-blue-600"
             >
               <FileText className="mr-2 h-5 w-5" />
               Ver Proposta de Especificação

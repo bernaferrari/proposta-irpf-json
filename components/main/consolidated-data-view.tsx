@@ -227,7 +227,7 @@ export function ConsolidatedDataView({
       </div>
 
       {/* Data Tables */}
-      <Tabs defaultValue="applications" className="w-full">
+      <Tabs defaultValue="applications" className="w-full flex flex-col">
         <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 h-auto">
           <TabsTrigger
             value="applications"
@@ -356,13 +356,12 @@ export function ConsolidatedDataView({
                         {formatCurrency(asset.current)}
                       </TableCell>
                       <TableCell
-                        className={`text-right font-mono ${
-                          variation > 0
+                        className={`text-right font-mono ${variation > 0
                             ? "text-green-600"
                             : variation < 0
-                            ? "text-red-600"
-                            : ""
-                        }`}
+                              ? "text-red-600"
+                              : ""
+                          }`}
                       >
                         {formatCurrency(variation)}
                       </TableCell>

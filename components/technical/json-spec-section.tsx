@@ -151,7 +151,7 @@ export function JsonSpecSection() {
           </p>
         </div>
 
-        <Tabs defaultValue="example" className="w-full">
+        <Tabs defaultValue="example" className="w-full flex flex-col">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="example">Exemplo</TabsTrigger>
             <TabsTrigger value="schema">Schema Detalhado</TabsTrigger>

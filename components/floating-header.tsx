@@ -15,8 +15,9 @@ export function FloatingHeader() {
         href="https://github.com/bernaferrari/proposta-irpf-json"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="GitHub repository"
         className={cn(
-          "p-2 rounded-full bg-background hover:bg-foreground/5 border border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-lg"
+          "size-8 inline-flex items-center justify-center rounded-full bg-background border border-gray-200 dark:border-gray-700 hover:bg-foreground/5 hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-lg"
         )}
       >
         <Github className="h-5 w-5 text-gray-700 dark:text-gray-300" />
@@ -26,6 +27,7 @@ export function FloatingHeader() {
         variant="outline"
         size="icon"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        aria-label={theme === "light" ? "Enable dark mode" : "Enable light mode"}
         className="bg-background rounded-lg hover:bg-foreground/5 border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-800 shadow-lg"
       >
         {theme === "light" ? (

@@ -105,7 +105,7 @@ function importarInformeJSON(arquivo) {
           </p>
         </div>
 
-        <Tabs defaultValue="banks" className="w-full">
+        <Tabs defaultValue="banks" className="w-full flex flex-col">
           <TabsList className="grid w-full grid-cols-3 bg-gray-100 dark:bg-gray-700 mb-6">
             <TabsTrigger value="banks">Para Bancos</TabsTrigger>
             <TabsTrigger value="irpf">Para IRPF</TabsTrigger>
